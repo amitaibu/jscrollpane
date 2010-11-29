@@ -1,0 +1,59 @@
+<?php
+// $Id: jscrollpane.module,v 1.1 2008/02/17 21:53:54 stevemckenzie Exp $
+
+/**
+ * API function to add jScrollpane on a page.
+ *
+ * @code
+ *   // foo class will get default scroll.
+ *   $commands[] = array('selector' => '.foo');
+ *
+ *   // bar ID will get scroll with min and max scroll set to 80px.
+ *   $commands[] = array(
+ *    'selector' => '#bar',
+ *    'options' => array(
+ *      'verticalDragMinHeight' => 80,
+ *      'verticalDragMaxHeight' => 80,
+ *    ),
+ *   );
+ *
+ *   jscrollpane_add_jscroll($commands);
+ * @endcode
+ */
+function jscrollpane_add_jscroll($commands = array()) {
+  // Add the JS plugin and CSS.
+  jscrollpane_add_media();
+
+
+  $settings['jscrollpane']['commands'] = array();
+
+  foreach ($commands as $key => $command) {
+    if (!empty($command['selector'])) {
+      // Add default values.
+      $command += array(
+        'options' => array(),
+      );
+
+      $settings['jscrollpane']['commands'][] = $command;
+    }
+
+  }
+
+  drupal_add_js($settings, 'setting');
+}
+
+/**
+ *  Add jQuery plugin.
+ */
+function jscrollpane_add_media() {
+  static $include;
+
+  if (!$include) {
+    drupal_add_js(drupal_get_path('module', 'jscrollpane') . '/jquery.jscrollpane.js');
+    drupal_add_css(drupal_get_path('module', 'jscrollpane') . '/jquery.jscrollpane.css');
+
+    // Add our own JS.
+    drupal_add_js(drupal_get_path('module', 'jscrollpane') . '/jscrollpane.js');
+    $include = TRUE;
+  }
+}
