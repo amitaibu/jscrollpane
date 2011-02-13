@@ -18,7 +18,6 @@ Drupal.behaviors.jScroll = {
           options = jscroll[key]['options'];
         }
 
-        console.log(jscroll[key]['selector']);
         $(jscroll[key]['selector']).scrollbar(options);
       }
     }
