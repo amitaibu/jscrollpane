@@ -19,7 +19,7 @@ Drupal.behaviors.jScroll = {
         }
 
         console.log(jscroll[key]['selector']);
-        $(jscroll[key]['selector']).scrollbar();
+        $(jscroll[key]['selector']).scrollbar(options);
       }
     }
   }
