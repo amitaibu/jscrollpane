@@ -18,7 +18,8 @@ Drupal.behaviors.jScrollPane = {
           options = jscrollpane[key]['options'];
         }
 
-        $(jscrollpane[key]['selector']).jScrollPane(options);
+        console.log(jscrollpane[key]['selector']);
+        $(jscrollpane[key]['selector']).scrollbar();
       }
     }
   }

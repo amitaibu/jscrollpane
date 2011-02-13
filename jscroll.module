@@ -20,12 +20,10 @@
  *   jscrollpane_add_jscroll($commands);
  * @endcode
  */
-function jscrollpane_add_jscroll($commands = array()) {
+function jscroll_add_jscroll($commands = array()) {
   // Add the JS plugin and CSS.
-  jscrollpane_add_media();
-
-
-  $settings['jscrollpane']['commands'] = array();
+  jscroll_add_media();
+  $settings['jscroll']['commands'] = array();
 
   foreach ($commands as $key => $command) {
     if (!empty($command['selector'])) {
@@ -34,26 +32,25 @@ function jscrollpane_add_jscroll($commands = array()) {
         'options' => array(),
       );
 
-      $settings['jscrollpane']['commands'][] = $command;
+      $settings['jscroll']['commands'][] = $command;
     }
-
   }
-
   drupal_add_js($settings, 'setting');
 }
 
 /**
- *  Add jQuery plugin.
+ *  Add the jQuery plugin.
  */
-function jscrollpane_add_media() {
+function jscroll_add_media() {
   static $include;
 
   if (!$include) {
-    drupal_add_js(drupal_get_path('module', 'jscrollpane') . '/jquery.jscrollpane.js');
-    drupal_add_css(drupal_get_path('module', 'jscrollpane') . '/jquery.jscrollpane.css');
+    // TODO: Move to libraries folder.
+    drupal_add_js(drupal_get_path('module', 'jscroll') . '/jquery.jscroll.js');
+    drupal_add_css(drupal_get_path('module', 'jscroll') . '/scrollbar.css');
 
     // Add our own JS.
-    drupal_add_js(drupal_get_path('module', 'jscrollpane') . '/jscrollpane.js');
+    drupal_add_js(drupal_get_path('module', 'jscroll') . '/jscroll.js');
     $include = TRUE;
   }
 }
