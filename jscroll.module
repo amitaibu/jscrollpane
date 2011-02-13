@@ -46,7 +46,7 @@ function jscroll_add_media() {
 
   if (!$include) {
     // TODO: Move to libraries folder.
-    drupal_add_js(drupal_get_path('module', 'jscroll') . '/jquery.jscroll.js');
+    drupal_add_js(drupal_get_path('module', 'jscroll') . '/jquery.scroll.js');
     drupal_add_css(drupal_get_path('module', 'jscroll') . '/scrollbar.css');
 
     // Add our own JS.

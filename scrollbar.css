@@ -1,12 +1,6 @@
 
 /* ---------- basic theme: these are the most necessary styles --------------------------------- */
 
-.node-article {
-  width:250px;
-  height:400px;
-  overflow:hidden;
-}
-
 .scrollbar-pane {
     margin-right: 20px;
 }

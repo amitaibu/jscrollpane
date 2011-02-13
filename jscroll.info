@@ -1,4 +1,4 @@
 ; $Id: jscrollpane.info,v 1.1 2008/02/17 21:53:54 stevemckenzie Exp $
 description = "JavaScript based scrollable containers."
-name = "JScrollPane"
+name = "JScroll"
 core = 7.x

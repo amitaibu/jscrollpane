@@ -3,23 +3,23 @@
 /**
  * Add rounded corners.
  */
-Drupal.behaviors.jScrollPane = {
+Drupal.behaviors.jScroll = {
   attach: function (context) {
     // Set the scroll pane.
-    if (Drupal.settings.jscrollpane.commands) {
-      var jscrollpane = Drupal.settings.jscrollpane.commands;
+    if (Drupal.settings.jscroll.commands) {
+      var jscroll = Drupal.settings.jscroll.commands;
 
       var options = {};
       // Add the rounded corners to the page.
-      for (var key in jscrollpane) {
+      for (var key in jscroll) {
         options = {};
         // Build the options if exist.
-        if ($(jscrollpane[key]['options']).length > 0) {
-          options = jscrollpane[key]['options'];
+        if ($(jscroll[key]['options']).length > 0) {
+          options = jscroll[key]['options'];
         }
 
-        console.log(jscrollpane[key]['selector']);
-        $(jscrollpane[key]['selector']).scrollbar();
+        console.log(jscroll[key]['selector']);
+        $(jscroll[key]['selector']).scrollbar();
       }
     }
   }
